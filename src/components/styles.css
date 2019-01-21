@@ -23,6 +23,11 @@ body{
     font-size:.6em;
     display: inline;
 }
+.votes{
+    display:inline;
+    font-size:.6em;
+    margin:2px;
+}
 
 .post-number{
     display: inline;

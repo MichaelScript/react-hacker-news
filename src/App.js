@@ -16,15 +16,19 @@ class App extends Component {
       articles:[
         {"title":"Google Homepage",
       "link":"https://google.com",
-        "time":new Date()},
+        "time":new Date(),
+        "votes":3},
       {
         "title":"Mozilla Developer Network",
       "link":"https://developer.mozilla.org/en-US/",
-      "time":new Date()},
+      "time":new Date(),
+      "votes":10
+      },
       {
         "title":"Getting started in react",
         "link":"https://reactjs.org/docs/getting-started.html",
-        "time":new Date()
+        "time":new Date(),
+        "votes":1337
       }
       ]
     }
@@ -42,13 +46,28 @@ class App extends Component {
     })
   }
 
+  upvote(i){
+    let articles = this.state.articles.slice()
+    articles[i].votes += 1;
+    this.setState({
+      articles:articles
+    })
+  }
+
   addPost(link,title){
     let newArticles = this.state.articles.slice();
     if(title !== undefined && link !== undefined){
+      /* Automatically adding in http if the link provided
+      doesn't have it*/
+      if (!link.match(/^[a-zA-Z]+:\/\//))
+      {
+          link = 'http://' + link;
+      }
       newArticles.push({
         "title":title,
         "link":link,
-        "time":new Date()
+        "time":new Date(),
+        "votes":0
       });
       this.setState(
         {
