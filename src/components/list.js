@@ -5,7 +5,7 @@ export default class List extends Component {
         const items = this.props.items;
         const listItems = items.map((item,i)=>{
             return <div>
-                <Item index={i + 1} title={item.title} link={item.link}></Item>
+                <Item index={i + 1} time={item.time} title={item.title} link={item.link}></Item>
             </div>
         })
         return (<div class="posts-container">

@@ -15,13 +15,16 @@ class App extends Component {
       showOverlay: false,
       articles:[
         {"title":"Google Homepage",
-      "link":"https://google.com"},
+      "link":"https://google.com",
+        "time":new Date()},
       {
         "title":"Mozilla Developer Network",
-      "link":"https://developer.mozilla.org/en-US/"},
+      "link":"https://developer.mozilla.org/en-US/",
+      "time":new Date()},
       {
         "title":"Getting started in react",
-        "link":"https://reactjs.org/docs/getting-started.html"
+        "link":"https://reactjs.org/docs/getting-started.html",
+        "time":new Date()
       }
       ]
     }
@@ -40,12 +43,12 @@ class App extends Component {
   }
 
   addPost(link,title){
-    alert("Adding new post: " + link + " title: " + title);
     let newArticles = this.state.articles.slice();
     if(title !== undefined && link !== undefined){
       newArticles.push({
         "title":title,
-        "link":link
+        "link":link,
+        "time":new Date()
       });
       this.setState(
         {
@@ -60,7 +63,7 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <Overlay hideOverlay={()=>{this.hideOverlay()}} showOverlay={this.state.showOverlay}>
-          <NewPost addPost={(title,link)=>{this.addPost(title,link)}} ></NewPost>
+          <NewPost hideOverlay={()=>{this.hideOverlay()}} addPost={(title,link)=>{this.addPost(title,link)}} ></NewPost>
           </Overlay>
           <Title></Title>
           <List items={this.state.articles}></List>

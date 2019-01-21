@@ -22,8 +22,14 @@ export default class NewPost extends Component{
     }
 
     createPost(event) {
-        alert('A name was submitted: ' + this.state.linkInput + ' ' + this.state.titleInput);
         this.props.addPost(this.state.linkInput,this.state.titleInput);
+        this.setState(
+            {
+                linkInput:"",
+                titleInput:""
+            }
+        )
+        this.props.hideOverlay();
         event.preventDefault();
     }
 

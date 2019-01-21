@@ -4,6 +4,7 @@ body{
 }
 *{
     box-sizing:border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .posts-container{
@@ -13,15 +14,26 @@ body{
 }
 .post{
     width:100%;
-    height:40px;
+    min-height:40px;
     color:#212121;
     background-color:#ffeaa7;
+}
+.date{
+    color:#212121;
+    font-size:.6em;
+    display: inline;
+}
+
+.post-number{
+    display: inline;
+    color: #323232;
 }
 
 .backlink{
     font-size:.65em;
     font-style:italic;
     margin:2px;
+    color:#323232;
 }
 .Fab{
     background:#ff6600;
@@ -68,22 +80,6 @@ body{
     display:block;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 a{
     color:inherit;
     text-decoration:none;
@@ -92,5 +88,6 @@ a{
 .title-bar{
     background-color:#ff6600;
     padding:4px;
+    font-weight:bold;
 
 }
