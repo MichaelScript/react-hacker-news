@@ -32,6 +32,9 @@ class App extends Component {
       }
       ]
     }
+    this.upvote = this.upvote.bind(this)
+    this.downvote = this.downvote.bind(this)
+
   }
 
   showOverlay(){
@@ -46,9 +49,17 @@ class App extends Component {
     })
   }
 
-  upvote(i){
+  upvote(id){
     let articles = this.state.articles.slice()
-    articles[i].votes += 1;
+    articles[id].votes += 1;
+    this.setState({
+      articles:articles
+    })
+  }
+  downvote(id){
+    alert("Downvoting: " + id)
+    let articles = this.state.articles.slice()
+    articles[id].votes -= 1;
     this.setState({
       articles:articles
     })
@@ -85,7 +96,7 @@ class App extends Component {
           <NewPost hideOverlay={()=>{this.hideOverlay()}} addPost={(title,link)=>{this.addPost(title,link)}} ></NewPost>
           </Overlay>
           <Title></Title>
-          <List items={this.state.articles}></List>
+          <List upvote={this.upvote} items={this.state.articles}></List>
           <Fab onClick={()=>{this.showOverlay()}}></Fab>
         </header>
       </div>

@@ -23,6 +23,13 @@ body{
     font-size:.6em;
     display: inline;
 }
+
+.vote{
+    display: inline;
+    font-size:.8em;
+    cursor:pointer;
+    margin:2px;
+}
 .votes{
     display:inline;
     font-size:.6em;
