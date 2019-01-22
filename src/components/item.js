@@ -6,7 +6,10 @@ export default class Item extends Component {
         return (
             <div className="post">
                 <div className="post-number">{this.props.index}.</div>
-                <span onClick={()=>{this.props.upvote(this.props.id)}} className="vote">⬆</span>
+                <div className="voting">
+                <span onClick={()=>{this.props.upvote(this.props.id)}} className="vote noselect">⬆</span>
+                <span onClick={()=>{this.props.downvote(this.props.id)}} className="vote noselect">⬇</span>
+                </div>
                 <a href={this.props.link}>{this.props.title}</a>
                 <span className="backlink"> ({this.props.link})</span>
                 <div className="votes">{this.props.votes} points</div>

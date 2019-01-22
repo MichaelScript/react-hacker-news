@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
-import List from './components/list'
+import List from './components/List'
 import Title from './components/Title'
 import Fab from './components/Fab'
 import Overlay from './components/Overlay'
@@ -28,7 +28,7 @@ class App extends Component {
         "title":"Getting started in react",
         "link":"https://reactjs.org/docs/getting-started.html",
         "time":new Date(),
-        "votes":1337
+        "votes":13
       }
       ]
     }
@@ -57,7 +57,6 @@ class App extends Component {
     })
   }
   downvote(id){
-    alert("Downvoting: " + id)
     let articles = this.state.articles.slice()
     articles[id].votes -= 1;
     this.setState({
@@ -91,14 +90,12 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <Overlay hideOverlay={()=>{this.hideOverlay()}} showOverlay={this.state.showOverlay}>
-          <NewPost hideOverlay={()=>{this.hideOverlay()}} addPost={(title,link)=>{this.addPost(title,link)}} ></NewPost>
-          </Overlay>
-          <Title></Title>
-          <List upvote={this.upvote} items={this.state.articles}></List>
-          <Fab onClick={()=>{this.showOverlay()}}></Fab>
-        </header>
+        <Overlay hideOverlay={()=>{this.hideOverlay()}} showOverlay={this.state.showOverlay}>
+        <NewPost hideOverlay={()=>{this.hideOverlay()}} addPost={(title,link)=>{this.addPost(title,link)}} ></NewPost>
+        </Overlay>
+        <Title></Title>
+        <List downvote={this.downvote} upvote={this.upvote} items={this.state.articles}></List>
+        <Fab onClick={()=>{this.showOverlay()}}></Fab>
       </div>
     );
   }

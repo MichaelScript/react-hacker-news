@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Item from './item'
+import Item from './Item'
 export default class List extends Component {
     render(){
         const items = this.props.items;
@@ -13,7 +13,7 @@ export default class List extends Component {
             return b.votes - a.votes;
         }).map((item,i)=>{
             return <div>
-                <Item upvote={this.props.upvote} index={i + 1}  {...item}></Item>
+                <Item downvote={this.props.downvote} upvote={this.props.upvote} index={i + 1}  {...item}></Item>
             </div>
         })
         return (<div class="posts-container">
