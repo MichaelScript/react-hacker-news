@@ -17,6 +17,7 @@ body{
     min-height:40px;
     color:#212121;
     background-color:#ffeaa7;
+    display:flex;
 }
 .date{
     color:#212121;
