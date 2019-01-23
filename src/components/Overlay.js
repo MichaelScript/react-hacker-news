@@ -12,7 +12,7 @@ export default class Overlay extends Component{
                 <div className="modal">
                 {this.props.children}
                 </div>
-                <div onClick={()=>this.props.hideOverlay()} class="bg"></div>
+                <div onClick={()=>this.props.hideOverlay()} className="bg"></div>
             </div>
         )
     }

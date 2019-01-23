@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import List from './components/List'
 import Title from './components/Title'
 import Fab from './components/Fab'

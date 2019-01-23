@@ -4,8 +4,8 @@ export default class NewPost extends Component{
     constructor(props){
         super(props);
         this.state = {
-            "linkInput":null,
-            "titleInput":null
+            "linkInput":"",
+            "titleInput":""
         }
 
         this.handleChange = this.handleChange.bind(this)

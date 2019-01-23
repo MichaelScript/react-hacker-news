@@ -12,11 +12,11 @@ export default class List extends Component {
         }).sort((a,b)=>{
             return b.votes - a.votes;
         }).map((item,i)=>{
-            return <div>
+            return <div key={i}>
                 <Item downvote={this.props.downvote} upvote={this.props.upvote} index={i + 1}  {...item}></Item>
             </div>
         })
-        return (<div class="posts-container">
+        return (<div className="posts-container">
             {listItems}
         </div>)
     }
